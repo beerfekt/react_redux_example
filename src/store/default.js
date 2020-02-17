@@ -1,10 +1,7 @@
-export const defaultStore = {
-    counter:{
-        count: 0
-    },
-    result: {
-        message: ''
-    }
-}
+export const defaultstore = {
+  counter: {
+    count: 0
+  }
+};
 
-export default defaultStore;
+export default defaultstore;

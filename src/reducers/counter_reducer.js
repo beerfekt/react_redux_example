@@ -1,36 +1,21 @@
-import defaultStore from '../store/default';
-import {
-    INCREMENT,
-    DECREMENT,
-    RESET
-} from '../actions/counter_actions';
+import defaultStore from "../store/default";
+import { INCREMENT, SENDFIVE } from "../actions/counter_actions";
 
+const counterReducer = (state = defaultStore.counter, action) => {
+  switch (action.type) {
+    case INCREMENT:
+      return {
+        ...state, //sonst werden andere attribute gelöscht die hier drinhängen
+        count: state.count + 1
+      };
+    case SENDFIVE:
+      return {
+        ...state, //sonst werden andere attribute gelöscht die hier drinhängen
+        count: action.numericValue
+      };
+    default:
+      return state;
+  }
+};
 
-//2. define initial state (IMPORTANT!)
-const initialState = {
-    count: 0
-}
-
-const counterReducer =  (state = defaultStore.counter, action) => {
-    console.log('reducer', state, action);
-
-    //Handle the types of action
-    switch(action.type){
-        case INCREMENT:
-            return {
-                count: state.count +1
-            };
-        case DECREMENT:
-            return {
-                count: state.count -1
-            };
-        case RESET:
-            return {
-                count: 0
-            };
-        default:
-            return state;            
-    }                                         
-}
-
-export default counterReducer
+export default counterReducer;
