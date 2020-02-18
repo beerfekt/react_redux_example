@@ -1,7 +1,12 @@
 import { combineReducers } from "redux";
-import counterReducer from "./counter_reducer";
 
-const reducer = combineReducers({ counter: counterReducer });
+import counterReducer from "./counter_reducer";
+import textFormReducer from "./textform_reducer";
+
+const reducer = combineReducers({
+  counter: counterReducer,
+  textForm: textFormReducer
+});
 
 //if global modifications are needed on store
 

@@ -10,8 +10,8 @@ const counterReducer = (state = defaultStore.counter, action) => {
       };
     case SENDFIVE:
       return {
-        ...state, //sonst werden andere attribute gelöscht die hier drinhängen
-        count: action.numericValue
+        ...state,
+        count: state.count + action.numericValue
       };
     default:
       return state;
